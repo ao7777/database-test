@@ -1,4 +1,4 @@
-package entity;
+package org.reevoo.movie_test.entity;
 
 import java.util.Date;
 

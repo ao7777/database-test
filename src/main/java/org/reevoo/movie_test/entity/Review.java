@@ -1,4 +1,4 @@
-package entity;
+package org.reevoo.movie_test.entity;
 
 public class Review {
     private String content;

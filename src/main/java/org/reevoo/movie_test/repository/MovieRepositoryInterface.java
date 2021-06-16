@@ -1,7 +1,8 @@
-package repository;
+package org.reevoo.movie_test.repository;
 import java.util.List;
 
-import entity.Movie;
+import org.reevoo.movie_test.entity.Movie;
+
 
 public interface MovieRepositoryInterface {
     /**
