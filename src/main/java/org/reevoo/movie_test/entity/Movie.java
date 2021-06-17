@@ -20,7 +20,7 @@ public class Movie {
     private void updateRatings() {
         for (Review review : this.movieDetail.getReviews())
             this.ratings += review.getRating();
-        this.ratings/=this.movieDetail.getReviews().size();
+        this.ratings /= this.movieDetail.getReviews().size();
     }
 
     public String getName() {
