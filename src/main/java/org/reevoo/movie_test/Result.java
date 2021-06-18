@@ -1,11 +1,9 @@
 package org.reevoo.movie_test;
 
 public class Result<T> {
-
     private Integer code;
     private String message;
     private T data;
-
 
     public Result(Integer code, String message) {
         this.code = code;
@@ -41,5 +39,4 @@ public class Result<T> {
     public void setData(T data) {
         this.data = data;
     }
-
 }

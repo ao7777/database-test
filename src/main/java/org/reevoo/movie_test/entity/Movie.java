@@ -1,27 +1,22 @@
 package org.reevoo.movie_test.entity;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Movie {
-    private String name;// 电影名
-    private Date releaseTime;// 上映时间
-    private Float ratings;// 评分
-    private MovieDetail movieDetail;// 电影详情
-
-    public MovieDetail getMovieDetail() {
-        return movieDetail;
-    }
-
-    public void setMovieDetail(MovieDetail movieDetail) {
-        this.movieDetail = movieDetail;
-        updateRatings();
-    }
-
-    private void updateRatings() {
-        for (Review review : this.movieDetail.getReviews())
-            this.ratings += review.getRating();
-        this.ratings /= this.movieDetail.getReviews().size();
-    }
+@Entity
+@Table(name = "movie")
+public class Movie implements Serializable {
+    @Id
+    private String name;
+    private Date releaseTime;
+    private Float ratings;
+    private Byte poster;
+    private String introduction;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "name", referencedColumnName = "name")
+    private List<Review> reviews;
 
     public String getName() {
         return name;
@@ -45,5 +40,35 @@ public class Movie {
 
     public void setRatings(Float ratings) {
         this.ratings = ratings;
+    }
+
+    public Byte getPoster() {
+        return poster;
+    }
+
+    public void setPoster(Byte poster) {
+        this.poster = poster;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+        updateRatings();
+    }
+
+    private void updateRatings() {
+        for (Review review : this.getReviews()) this.ratings += review.getRating();
+        this.ratings /= this.getReviews().size();
     }
 }

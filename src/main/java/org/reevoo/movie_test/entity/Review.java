@@ -1,9 +1,29 @@
 package org.reevoo.movie_test.entity;
 
-public class Review {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "review")
+@IdClass(ReviewPK.class)
+public class Review implements Serializable {
+    @Id
+    private String name;
     private String content;
-    private User reviewer;
+    @Id
+    private String reviewer;
     private Float rating;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getContent() {
         return content;
@@ -13,11 +33,11 @@ public class Review {
         this.content = content;
     }
 
-    public User getReviewer() {
+    public String getReviewer() {
         return reviewer;
     }
 
-    public void setReviewer(User reviewer) {
+    public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
     }
 

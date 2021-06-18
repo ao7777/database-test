@@ -1,20 +1,10 @@
 package org.reevoo.movie_test.serviceimpl;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.reevoo.movie_test.Result;
-import org.reevoo.movie_test.entity.Movie;
-import org.reevoo.movie_test.entity.MovieDetail;
-import org.reevoo.movie_test.entity.Review;
 import org.reevoo.movie_test.entity.User;
-import org.reevoo.movie_test.repository.MovieRepository;
 import org.reevoo.movie_test.repository.UserRepository;
 import org.reevoo.movie_test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
-import org.json.JSONObject;
 
 @Service
 public class UserServiceImpl implements UserService {

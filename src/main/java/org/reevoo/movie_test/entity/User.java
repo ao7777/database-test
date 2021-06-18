@@ -9,11 +9,11 @@ import java.util.Date;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
+    @Id
     private String id;
     private String name;
     private Date joinDate;
 
-    @Id
     public String getId() {
         return id;
     }
