@@ -15,4 +15,9 @@ public class MovieServiceImpl implements MovieService {
     public Movie findByName(String name) {
         return movieRepository.findByName(name).orElse(null);
     }
+
+    @Override
+    public void save(Movie movie) {
+        movieRepository.save(movie);
+    }
 }

@@ -1,6 +1,5 @@
 package org.reevoo.movie_test.repository;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.reevoo.movie_test.entity.Movie;

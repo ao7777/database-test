@@ -12,9 +12,9 @@ import java.io.Serializable;
 public class Review implements Serializable {
     @Id
     private String name;
-    private String content;
     @Id
     private String reviewer;
+    private String content;
     private Float rating;
 
     public String getName() {
@@ -25,20 +25,20 @@ public class Review implements Serializable {
         this.name = name;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public String getReviewer() {
         return reviewer;
     }
 
     public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Float getRating() {

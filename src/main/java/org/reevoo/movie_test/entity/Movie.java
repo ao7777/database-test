@@ -3,7 +3,6 @@ package org.reevoo.movie_test.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "movie")
@@ -14,9 +13,6 @@ public class Movie implements Serializable {
     private Float ratings;
     private Byte poster;
     private String introduction;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "name", referencedColumnName = "name")
-    private List<Review> reviews;
 
     public String getName() {
         return name;
@@ -56,19 +52,5 @@ public class Movie implements Serializable {
 
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-        updateRatings();
-    }
-
-    private void updateRatings() {
-        for (Review review : this.getReviews()) this.ratings += review.getRating();
-        this.ratings /= this.getReviews().size();
     }
 }
