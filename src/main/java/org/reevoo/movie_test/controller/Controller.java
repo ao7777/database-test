@@ -4,7 +4,6 @@ import org.json.JSONObject;
 import org.reevoo.movie_test.Result;
 import org.reevoo.movie_test.entity.Movie;
 import org.reevoo.movie_test.entity.Review;
-import org.reevoo.movie_test.entity.ReviewPK;
 import org.reevoo.movie_test.entity.User;
 import org.reevoo.movie_test.service.MovieService;
 import org.reevoo.movie_test.service.ReviewService;
@@ -57,7 +56,7 @@ public class Controller {
     }
 
     @CrossOrigin
-    @RequestMapping("upload")
+    @RequestMapping("/upload")
     public Result<Object> uploadMovie(@RequestBody String json) throws ParseException {
         JSONObject params = new JSONObject(json);
         String name = params.getString("movieName");
