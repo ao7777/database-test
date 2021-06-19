@@ -1,17 +1,28 @@
 package org.reevoo.movie_test.entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "movie")
+
+@Document(collection = "movie")
 public class Movie implements Serializable {
     @Id
+    @Column(name="NAME",nullable = false)
     private String name;
+
+    @Column(name="RELEASE_TIME")
     private Date releaseTime;
+
+    @Column(name="RATING")
     private Float ratings;
+
+    @Column(name="POSTER")
     private Byte poster;
+
+    @Column(name="INTRODUCTION")
     private String introduction;
 
     public String getName() {

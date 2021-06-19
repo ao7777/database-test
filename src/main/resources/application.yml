@@ -22,19 +22,20 @@
 spring:
   profiles:
     active: dev
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        new_generator_mappings: false
-        format_sql: true
-        enable_lazy_load_no_trans: true
-    show-sql: true
-    open-in-view: false
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        new_generator_mappings: false
+#        format_sql: true
+#        enable_lazy_load_no_trans: true
+#    show-sql: true
+#    open-in-view: false
   data:
     mongodb:
-      uri: mongodb://test:test@127.0.0.1:27017/url?authSource=mydb
-#      port: 27017
+      database: performanceTest
+      host: localhost
+      port: 27017
 #      authentication-database: url
 #      database: url
 #      username: url
