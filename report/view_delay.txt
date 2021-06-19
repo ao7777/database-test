@@ -1,0 +1,38 @@
+var chart = Highcharts.chart('container',{
+	chart: {
+		type: 'column'
+	},
+	title: {
+		text: '查看电影'
+	},
+	xAxis: {
+		categories: [
+			'MySQL','MongoDB','MariaDB','SQL Server'
+		],
+		crosshair: true
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: '平均时延 (ms)'
+		}
+	},
+	tooltip: {
+		// head + 每个 point + footer 拼接成完整的 table
+		headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+		pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+		footerFormat: '</table>',
+		shared: true,
+		useHTML: true
+	},
+	plotOptions: {
+		column: {
+			borderWidth: 0
+		}
+	},
+	series: [{
+		name: '平均时延',
+		data: [1426, 2924, 1831, 974]
+	}]
+});
