@@ -9,10 +9,7 @@ import org.reevoo.movie_test.service.MovieService;
 import org.reevoo.movie_test.service.ReviewService;
 import org.reevoo.movie_test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -73,5 +70,11 @@ public class Controller {
         movie.setIntroduction(introduction);
         movieService.save(movie);
         return new Result<>(1, "成功");
+    }
+
+    @CrossOrigin
+    @RequestMapping("/view")
+    public Result<Movie> viewMovie(@RequestParam("movieName") String name) {
+        return new Result<>(1, "成功", movieService.findByName(name));
     }
 }
