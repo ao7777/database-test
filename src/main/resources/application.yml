@@ -1,3 +1,24 @@
+#spring:
+#  profiles:
+#    active: dev
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        new_generator_mappings: false
+#        format_sql: true
+#        enable_lazy_load_no_trans: true
+#    open-in-view: false
+#  datasource:
+#    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#server:
+#  port: 8080
+#  tomcat:
+#    uri-encoding: UTF-8
+
 spring:
   profiles:
     active: dev
@@ -8,12 +29,16 @@ spring:
         new_generator_mappings: false
         format_sql: true
         enable_lazy_load_no_trans: true
+    show-sql: true
     open-in-view: false
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    mongodb:
+      uri: mongodb://test:test@127.0.0.1:27017/url?authSource=mydb
+#      port: 27017
+#      authentication-database: url
+#      database: url
+#      username: url
+#      password: ENC(OAOND8tNccLS/N13zbCFj/RSwejoI/Hr)
 server:
   port: 8080
   tomcat:
