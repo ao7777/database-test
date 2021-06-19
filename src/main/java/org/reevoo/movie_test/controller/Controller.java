@@ -24,7 +24,7 @@ public class Controller {
     private ReviewService reviewService;
     @Autowired
     private UserService userService;
-    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @CrossOrigin
     @RequestMapping("/review")
@@ -55,6 +55,7 @@ public class Controller {
     @CrossOrigin
     @RequestMapping("/upload")
     public Result<Object> uploadMovie(@RequestBody String json) throws ParseException {
+//        System.out.println(json);
         JSONObject params = new JSONObject(json);
         String name = params.getString("movieName");
         Date releaseTime = simpleDateFormat.parse(params.getString("releaseTime"));
@@ -75,6 +76,7 @@ public class Controller {
     @CrossOrigin
     @RequestMapping("/view")
     public Result<Movie> viewMovie(@RequestParam("movieName") String name) {
+//        System.out.println("view");
         return new Result<>(1, "成功", movieService.findByName(name));
     }
 }
