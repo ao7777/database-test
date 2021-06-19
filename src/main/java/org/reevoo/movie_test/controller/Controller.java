@@ -27,7 +27,7 @@ public class Controller {
     private ReviewService reviewService;
     @Autowired
     private UserService userService;
-    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @CrossOrigin
     @RequestMapping("/review")

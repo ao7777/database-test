@@ -10,10 +10,10 @@ spring:
         enable_lazy_load_no_trans: true
     open-in-view: false
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:sqlserver://localhost:1433;instance=MSSQLSERVER;TRUSTED_CONNECTION=TRUE;database=movie_test
+    username: movietest
+    password: movietest
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 server:
   port: 8080
   tomcat:
